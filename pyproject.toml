@@ -1,0 +1,19 @@
+[project]
+name = "streamlit-app-finbook"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "pandas>=2.3.3",
+    "streamlit>=1.50.0",
+    "plotly>=5.0.0",
+    "auth0-python>=4.8.1",
+    "authlib>=1.4.1",
+    "plotly>=6.0.0",
+    "google-api-python-client>=2.185.0",
+    "google-auth-httplib2>=0.2.0",
+    "google-auth-oauthlib>=1.2.2",
+    "gspread>=6.2.1",
+    "loguru>=0.7.3",
+]
