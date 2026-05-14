@@ -1,5 +1,5 @@
 import streamlit as st
-from loguru import logger
+
 from PIL import Image
 import requests
 
