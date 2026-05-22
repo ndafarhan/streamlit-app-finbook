@@ -64,7 +64,9 @@ with col1:
     st.plotly_chart(fig, use_container_width=True)
 with col2:
     st.subheader("Wallet 💰")
-    st.metric(label="Available Budget", value=f"Rp 50,000,000")
+    initial_amount = 124250000
+    current_amount = initial_amount - done_ammount
+    st.metric(label="Available Budget", value=f"Rp {current_amount:,.0f}")
 # Initialize session state for mission input and missions list
 if "mission_input_field" not in st.session_state:
     st.session_state.mission_input_field = ""
