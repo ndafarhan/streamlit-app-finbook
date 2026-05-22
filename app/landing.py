@@ -27,8 +27,7 @@ with st.form("login_form"):
             if password == st.secrets["login_password"]:
                 st.session_state.logged_in = True
                 st.session_state.user_email = email
-                st.success(f"Login berhasil dengan email: {email}")
-                st.switch_page("app/app.py")
+                st.rerun()
             else:
                 st.error("Password salah")
         else:
