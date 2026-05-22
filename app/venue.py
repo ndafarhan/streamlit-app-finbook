@@ -4,23 +4,16 @@ from PIL import Image
 import requests
 
 st.title("Venue Selection 🏟️")
-if not st.user["email_verified"]:
-    st.warning("Please verify your email and login back to unlock all features")
 
 with st.sidebar:
-    # Show picture from URL
-    if st.user.picture:
-        try:
-            im = Image.open(requests.get(st.user.picture, stream=True).raw)
-            st.image(im, width=50) 
-            st.write(st.user.name.title())
-        except Exception as e:
-            st.warning("Could not load profile picture")
-            st.write("🧑‍💼")  # Default avatar emoji
-    else:
-        st.write("🧑‍💼")  # Default avatar emoji when no picture URL
+    # Show user email from session state
+    user_email = st.session_state.get("user_email", "User")
+    st.write(f"👤 {user_email}")
+    
     if st.button("🔓 Logout"):
-        st.logout()
+        st.session_state.logged_in = False
+        st.session_state.user_email = None
+        st.rerun()
 
 # Display venue selection options
 col1, col2, col3 = st.columns(3)

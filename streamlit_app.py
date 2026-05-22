@@ -10,7 +10,6 @@ st.set_page_config(
 
 # Define app pages
 root_dir = Path(__file__).parent
-print(f"Root directory: {root_dir}")
 landing_page = st.Page(str(root_dir / "app" / "landing.py"), title="Landing", icon=":material/lock_outline:")
 app_page = st.Page(str(root_dir / "app" / "app.py"), title="Home", icon=":material/home:")
 venue_page = st.Page(str(root_dir / "app" / "venue.py"), title="Venue", icon=":material/location_on:")
