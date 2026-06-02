@@ -123,9 +123,15 @@ with col3:
 
 #show data from google spreadsheet in table
 
+# Prepare display dataframe with formatted Amount_Budget
+detailed_budget_df_display = detailed_budget_df.copy()
+detailed_budget_df_display["Amount_Budget"] = detailed_budget_df_display["Amount_Budget"].apply(
+    lambda x: f"Rp {x:,.0f}" if pd.notna(x) else "0"
+)
+
 st.subheader("Detailed Budgeting")
 st.dataframe(
-    detailed_budget_df, 
+    detailed_budget_df_display, 
     column_config={
         "Progress": st.column_config.ProgressColumn(
             "Progress",
@@ -139,4 +145,9 @@ st.dataframe(
 )
 
 st.subheader("Detailed Transaction")
-st.dataframe(detailed_trx_df, hide_index=True)
+# Prepare display dataframe with formatted Amount
+detailed_trx_df_display = detailed_trx_df.copy()
+detailed_trx_df_display["Amount"] = detailed_trx_df_display["Amount"].apply(
+    lambda x: f"Rp {x:,.0f}" if pd.notna(x) else "0"
+)
+st.dataframe(detailed_trx_df_display, hide_index=True)
